@@ -527,6 +527,9 @@ cls
 
 start /b /wait "" "C:\bin\1\Visual-C-Runtimes-All-in-One-Nov-2023\install_all.bat" >nul 2>&1
 
+::DWMEnableMMCSS
+move "C:\bin\4\DWMEnableMMCSS.exe.lnk" "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup"
+
 ::Eliminar cosas inutiles
 cls
 echo.
@@ -792,9 +795,10 @@ powershell Clear-RecycleBin -Force >NUL 2>&1
 reg delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\taskmgr.exe" /v "Debugger" /f >nul 2>&1
 cmd /c "start C:\Windows\explorer.exe"
 taskkill /f /im explorer.exe >nul 2>&1
-taskkill /f /im explorer.exe >nul 2>&1
 cmd /c "start C:\Windows\explorer.exe"
 taskkill /f /im explorer.exe >nul 2>&1
+cmd /c "start C:\Windows\explorer.exe"
+taskkill /im explorer.exe /f >nul 2>&1
 cmd /c "start C:\Windows\explorer.exe"
 shutdown /r /t 5 /c "restarting..."
 start /b "" cmd /c del "%~f0"&exit /b
