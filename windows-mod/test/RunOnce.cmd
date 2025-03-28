@@ -796,9 +796,8 @@ reg delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Executi
 cmd /c "start C:\Windows\explorer.exe"
 taskkill /f /im explorer.exe >nul 2>&1
 cmd /c "start C:\Windows\explorer.exe"
+timeout /t 5 /nobreak >NUL 2>&1
 taskkill /f /im explorer.exe >nul 2>&1
-cmd /c "start C:\Windows\explorer.exe"
-taskkill /im explorer.exe /f >nul 2>&1
 cmd /c "start C:\Windows\explorer.exe"
 shutdown /r /t 5 /c "restarting..."
 start /b "" cmd /c del "%~f0"&exit /b
