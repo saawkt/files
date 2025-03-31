@@ -10,8 +10,8 @@ powercfg /s b0a71852-3be4-43b1-9aff-70d3c8430794
 powershell set-executionpolicy unrestricted -force >nul 2>&1
 setx POWERSHELL_TELEMETRY_OPTOUT 1 >nul 2>&1
 Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\taskmgr.exe" /v "Debugger" /t REG_SZ /d "." /f >nul 2>&1
-label C: W11-BETA-002
-bcdedit /set {current} description "W11-BETA-002"
+label C: SXKOS-23H2-2.0.0
+bcdedit /set {current} description "SXKOS-23H2-2.0.0"
 cls
 
 :: installers
