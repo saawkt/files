@@ -1,0 +1,15 @@
+Windows Registry Editor Version 5.00 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\mstech-blueclient] 
+"Start"=dword:00000004 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\mstech-client-update] 
+"Start"=dword:00000004 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\mstech-client-v3] 
+"Start"=dword:00000004 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\mstech-serial-binder] 
+"Start"=dword:00000004
+ 
+
