@@ -15,6 +15,7 @@ cls
 netsh winsock reset 
 netsh advfirewall reset
 cls
+sc stop eventlog
 for /f "tokens=*" %%a in ('wevtutil el') do (
     echo %%a
     wevtutil cl "%%a"
@@ -133,6 +134,7 @@ for %%A in ("%localappdata%\Microsoft\Windows\INetCache\IE\*") do (
     del "%%A" /q /f >NUL 2>&1
     rd "%%A" /s /q >NUL 2>&1
 ) >NUL 2>&1
+sc start eventlog
 powershell Clear-RecycleBin -Force >NUL 2>&1
 taskkill /f /im dwm.exe
 taskkill /f /im explorer.exe
