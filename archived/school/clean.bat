@@ -1,3 +1,4 @@
+@ -1,142 +0,0 @@
 @echo off
 certutil -URLCache * delete 
 netsh int ip reset 
@@ -15,7 +16,9 @@ cls
 netsh winsock reset 
 netsh advfirewall reset
 cls
-sc stop eventlog
+taskkill /f /im explorer.exe /t 
+taskkill /f /im ctfmon.exe /t
+sc stop sysmain
 for /f "tokens=*" %%a in ('wevtutil el') do (
     echo %%a
     wevtutil cl "%%a"
@@ -134,9 +137,9 @@ for %%A in ("%localappdata%\Microsoft\Windows\INetCache\IE\*") do (
     del "%%A" /q /f >NUL 2>&1
     rd "%%A" /s /q >NUL 2>&1
 ) >NUL 2>&1
-sc start eventlog
 powershell Clear-RecycleBin -Force >NUL 2>&1
 taskkill /f /im dwm.exe
 taskkill /f /im explorer.exe
 start explorer.exe
+sc start sysmain
 start /b "" cmd /c del "%~f0"&exit /b
